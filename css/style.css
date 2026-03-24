@@ -1,28 +1,14 @@
 :root {
   --bg: #0f1724;
-  --card: #0b1220;
+  --card: rgba(11, 18, 32, 0.6);
   --muted: #9aa6b2;
   --accent1: #6ee7b7;
   --accent2: #60a5fa;
   --glass: rgba(255, 255, 255, 0.04);
   --radius: 14px;
-  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-/* 1. CORRECCIÓN DEL CANVAS (FONDO) */
-#techCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* Detrás de todo */
-  pointer-events: none;
-  display: block;
-  background-color: var(--bg); /* El color oscuro va aquí para que el canvas sea el fondo */
-}
-
-/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -34,135 +20,111 @@ html, body {
   width: 100%;
   overflow-x: hidden;
   color: #e6eef6;
-  background: transparent; /* Transparente para ver el Canvas */
+  background-color: var(--bg); /* Color de respaldo si falla el JS */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* --- FIX DEL FONDO (CANVAS) --- */
+#techCanvas {
+  position: fixed; /* Clave: lo saca del flujo normal */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Lo manda al fondo */
+  pointer-events: none; /* Los clics pasan a través de él */
 }
 
-/* Contenedor Principal */
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 32px);
+  padding: 0 5%;
   position: relative;
-  z-index: 10; /* Por encima del canvas */
+  z-index: 10; /* Asegura que el contenido esté sobre el canvas */
 }
 
-/* Header */
+/* --- HEADER --- */
 .header {
-  position: sticky;
-  top: 12px;
-  z-index: 100;
+  padding: 20px 0;
 }
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px;
+  padding: 15px 25px;
   border-radius: 12px;
-  background: rgba(15, 23, 36, 0.7); /* Fondo semi-transparente para legibilidad */
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.brand {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand img { width: 50px; }
+.brand-title { font-weight: bold; font-size: 1.5rem; }
+.brand-subtitle { font-size: 0.8rem; opacity: 0.8; }
 
-.brand img {
-  width: clamp(40px, 6vw, 70px);
-  border-radius: 6px;
-}
+nav ul { display: flex; gap: 20px; list-style: none; align-items: center; }
 
-nav ul {
-  display: flex;
-  gap: 18px;
-  list-style: none;
-}
-
-/* Buttons */
-.btn-cta {
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  background: linear-gradient(90deg, var(--accent2), var(--accent1));
-  color: #04202a;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(96, 165, 250, 0.4);
-}
-
-.btn-secondary {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 1px solid var(--muted);
-  color: var(--muted);
-  background: transparent;
-  transition: 0.3s;
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-}
-
-/* Hero Section - Ajuste de Grilla */
+/* --- HERO SECTION --- */
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* Divide el espacio para que el texto no choque con los servicios */
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
   align-items: center;
-  padding: clamp(60px, 10vw, 120px) 0;
-  position: relative;
-  z-index: 20;
+  padding: 80px 0;
 }
 
 @media (max-width: 992px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+  .hero { grid-template-columns: 1fr; text-align: center; }
   .cta-row { justify-content: center; }
 }
 
 .hero-text h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
-.cta-row {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
+.lead { font-size: 1.1rem; color: var(--muted); margin-bottom: 30px; }
+
+.cta-row { display: flex; gap: 15px; }
+
+/* --- BOTONES --- */
+.btn-cta {
+  background: linear-gradient(90deg, var(--accent2), var(--accent1));
+  color: #04202a;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.3s;
 }
 
-/* Mockup / Service List lateral */
+.btn-secondary {
+  border: 1px solid var(--muted);
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-cta:hover, .btn-secondary:hover { transform: translateY(-3px); opacity: 0.9; }
+
+/* --- GRID DE SERVICIOS (DERECHA) --- */
 .mock {
-  background: rgba(11, 18, 32, 0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  background: var(--card);
   padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 12px;
 }
 
 .svc {
+  background: rgba(255, 255, 255, 0.05);
   padding: 15px;
-  background: var(--glass);
   border-radius: 10px;
   text-align: center;
   font-size: 0.9rem;
@@ -175,10 +137,26 @@ nav ul {
   background: rgba(96, 165, 250, 0.1);
 }
 
-/* Floating Buttons */
+/* --- FLOATING --- */
 .chat-float {
   position: fixed;
   right: 20px;
   bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   z-index: 1000;
 }
+
+.chat-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wh { background: #25d366; }
+.tg { background: #0088cc; }
