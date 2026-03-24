@@ -20,7 +20,7 @@ html, body {
   width: 100%;
   overflow-x: hidden;
   color: #e6eef6;
-  background: var(--bg);
+  background: transparent; /* Permite ver el canvas que está en el z-index -1 */
 }
 a {
   color: inherit;
@@ -339,4 +339,16 @@ nav ul {
   margin-top: 60px;
   position: relative;
   z-index: 1;
+}
+
+/* Esto hace que el fondo tecnológico flote detrás de todo */
+#techCanvas {
+  position: fixed;   /* Se queda quieto aunque hagas scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;      /* Ocupa todo el ancho de la ventana */
+  height: 100vh;     /* Ocupa todo el alto de la ventana */
+  z-index: -1;       /* Se va detrás de todos los textos y botones */
+  pointer-events: none; /* Permite que puedas hacer clic en lo que hay detrás */
+  display: block;
 }
