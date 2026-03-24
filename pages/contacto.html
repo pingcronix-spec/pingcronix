@@ -10,11 +10,10 @@
 <link rel="stylesheet" href="../css/glow.css">
 <link rel="stylesheet" href="../css/style-Contact.css">
 <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-
 </head>
+
 <body>
 
-<!-- HEADER -->
 <header class="container reveal">
   <div class="nav">
     <div class="brand">
@@ -39,15 +38,22 @@
   <h1 class="fade-in">Contáctanos</h1>
   <p class="fade-in delay">Completa el formulario a continuación y nuestro equipo se pondrá en contacto contigo para asesorarte o enviarte un presupuesto.</p>
 
-  <form class="contact-form fade-in delay" id="contactForm" novalidate>
+  <form class="contact-form fade-in delay"
+        id="contactForm"
+        action="https://formspree.io/f/TU_ID_AQUI"
+        method="POST">
+
+    <!-- Asunto del correo -->
+    <input type="hidden" name="_subject" value="Nuevo contacto desde PingCronix">
+
     <input type="text" name="name" placeholder="Nombre completo" required>
     <div class="error-msg" id="nameError">Por favor ingresa tu nombre.</div>
 
     <input type="email" name="email" placeholder="Correo electrónico" required>
     <div class="error-msg" id="emailError">Por favor ingresa un correo válido.</div>
 
-    <input type="tel" name="phone" placeholder="Teléfono" pattern="[0-9]{9,15}" title="Ingrese solo números, mínimo 9 dígitos" required>
-    <div class="error-msg" id="phoneError">Por favor ingresa un número válido (solo números, mínimo 9 dígitos).</div>
+    <input type="tel" name="phone" placeholder="Teléfono" pattern="[0-9]{9,15}" required>
+    <div class="error-msg" id="phoneError">Por favor ingresa un número válido.</div>
 
     <select name="service" required>
       <option value="">Selecciona un servicio</option>
@@ -55,9 +61,10 @@
       <option value="cctv">CCTV & Cámaras</option>
       <option value="pc">Mantenimiento PC</option>
       <option value="impresoras">Impresoras</option>
-      <option value="licencias">Venta de Licencias</option>
+      <option value="licencias">Licencias</option>
       <option value="auditoria">Auditoría</option>
       <option value="ciberseguridad">Ciberseguridad</option>
+      <option value="proyectos">Proyectos Educativos</option>
     </select>
     <div class="error-msg" id="serviceError">Selecciona un servicio.</div>
 
@@ -68,72 +75,58 @@
   </form>
 </main>
 
-<!-- BOTONES FLOTANTES -->
 <div class="service-buttons">
   <a href="../index.html" class="btn-service-secondary">Regresar al inicio</a>
 </div>
 
 <script src="../js/main.js"></script>
+
 <script>
-// Validación avanzada en tiempo real
 const form = document.getElementById('contactForm');
 
 form.addEventListener('submit', function(e){
-  e.preventDefault();
   let valid = true;
 
-  // Nombre
   const name = form.name.value.trim();
-  if(name === ''){
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+  const service = form.service.value;
+  const message = form.message.value.trim();
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[0-9]{9,15}$/;
+
+  if(name.length < 3){
     document.getElementById('nameError').style.display='block';
     valid=false;
-  }else{
-    document.getElementById('nameError').style.display='none';
-  }
+  } else document.getElementById('nameError').style.display='none';
 
-  // Email
-  const email = form.email.value.trim();
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if(!emailRegex.test(email)){
     document.getElementById('emailError').style.display='block';
     valid=false;
-  }else{
-    document.getElementById('emailError').style.display='none';
-  }
+  } else document.getElementById('emailError').style.display='none';
 
-  // Teléfono
-  const phone = form.phone.value.trim();
-  const phoneRegex = /^[0-9]{9,15}$/;
   if(!phoneRegex.test(phone)){
     document.getElementById('phoneError').style.display='block';
     valid=false;
-  }else{
-    document.getElementById('phoneError').style.display='none';
-  }
+  } else document.getElementById('phoneError').style.display='none';
 
-  // Servicio
-  const service = form.service.value;
   if(service === ''){
     document.getElementById('serviceError').style.display='block';
     valid=false;
-  }else{
-    document.getElementById('serviceError').style.display='none';
-  }
+  } else document.getElementById('serviceError').style.display='none';
 
-  // Mensaje
-  const message = form.message.value.trim();
-  if(message===''){
+  if(message.length < 10){
     document.getElementById('messageError').style.display='block';
     valid=false;
-  }else{
-    document.getElementById('messageError').style.display='none';
-  }
+  } else document.getElementById('messageError').style.display='none';
 
-  if(valid){
-    alert("¡Gracias por tu mensaje! Nos pondremos en contacto pronto.");
-    form.reset();
+  // 🚨 Solo bloquea si hay errores
+  if(!valid){
+    e.preventDefault();
   }
 });
 </script>
+
 </body>
 </html>
