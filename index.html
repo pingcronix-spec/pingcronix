@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>PingCronix — Soluciones Tecnológicas Integrales</title>
-    <meta name="description" content="Ciberseguridad, Instalación y Mantenimiento de Redes, Soporte Remoto/Presencial, Venta de Licencias, CCTV y Mantenimiento de Impresoras Ricoh y Epson." />
-    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style-index.css">
-    <link rel="stylesheet" href="css/style-Letra.css">
-    <link rel="stylesheet" href="css/glow.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PingCronix — Soluciones Tecnológicas Integrales</title>
+<meta name="description" content="Ciberseguridad, Instalación y Mantenimiento de Redes, Soporte Remoto/Presencial, Venta de Licencias, CCTV y Mantenimiento de Impresoras Ricoh y Epson." />
+<link rel="stylesheet" href="css/style.css"s>
+<link rel="stylesheet" href="css/style-index.css"s>
+<link rel="stylesheet" href="css/style-Letra.css">
+<link rel="stylesheet" href="css/glow.css">
+<!-- <link rel="stylesheet" href="css/style-button.css" /> -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
 
+<!-- FONDO RED DE NODOS -->
 <canvas id="techCanvas"></canvas>
 
+<!-- HEADER -->
 <header class="container reveal">
   <div class="nav">
     <div class="brand">
@@ -28,6 +30,7 @@
     <nav>
       <ul>
         <li><a href="pages/servicios.html">Servicios</a></li>
+        <!--<li><a href="pages/proyectos.html">Proyectos Educativos</a></li>-->
         <li><a href="pages/precios.html">Planes</a></li>
         <li><a href="pages/contacto.html" class="btn-cta">Contactar</a></li>
       </ul>
@@ -35,6 +38,7 @@
   </div>
 </header>
 
+<!-- HERO -->
 <main class="container">
   <section class="hero">
     <div class="hero-text">
@@ -49,6 +53,7 @@
       </div>
     </div>
 
+    <!-- SECCIÓN DE SERVICIOS -->
     <aside class="mock reveal delay">
       <div class="pulse"></div>
       <div class="service-list">
@@ -66,21 +71,30 @@
   </section>
 </main>
 
+<!-- FOOTER -->
 <footer class="container">
   <div class="footer-content">
     <div>© 2025 PingCronix. Todos los derechos reservados.</div>
   </div>
 </footer>
 
+<!-- BOTONES FLOTANTES -->
 <div class="chat-float">
+  <div style="position:relative;">
     <button class="chat-btn wh" title="WhatsApp" onclick="openWhatsApp()">
       <img src="img/icons/whatsapp.png" alt="WhatsApp" style="width:24px; height:24px;">
     </button>
+    <div class="chat-label">Chatear por WhatsApp</div>
+  </div>
+  <div style="position:relative;">
     <button class="chat-btn tg" title="Telegram" onclick="openTelegram()">
       <img src="img/icons/telegram.png" alt="Telegram" style="width:24px; height:24px;">
     </button>
+    <div class="chat-label">Abrir Telegram</div>
+  </div>
 </div>
 
+<!-- JS -->
 <script src="js/main.js"></script>
 </body>
 </html>
