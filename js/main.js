@@ -1,13 +1,13 @@
 // WhatsApp
 function openWhatsApp(){
-  const numero = '+5939XXXXXXXX';
+  const numero = '+593995984181';
   const texto = encodeURIComponent('Hola, estoy interesado en sus servicios.');
   window.open('https://wa.me/' + numero.replace(/\+/g,'') + '?text=' + texto,'_blank');
 }
 
 // Telegram
 function openTelegram(){
-  const usuario = 'tu_usuario_telegram';
+  const usuario = '@pingcronix';
   window.open('https://t.me/' + usuario.replace(/^@/,''),'_blank');
 }
 
