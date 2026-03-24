@@ -9,59 +9,77 @@
   font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
 }
 
-/* RESET para todos*/
+/* 1. CORRECCIÓN DEL CANVAS (FONDO) */
+#techCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Detrás de todo */
+  pointer-events: none;
+  display: block;
+  background-color: var(--bg); /* El color oscuro va aquí para que el canvas sea el fondo */
+}
+
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 html, body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   overflow-x: hidden;
   color: #e6eef6;
-  background: transparent; /* Permite ver el canvas que está en el z-index -1 */
+  background: transparent; /* Transparente para ver el Canvas */
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
-html { font-size: 16px; }
-@media (min-width: 1400px) { html { font-size: 18px; } }
-@media (max-width: 768px) { html { font-size: 15px; } }
 
+/* Contenedor Principal */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 clamp(16px, 4vw, 32px);
   position: relative;
-  z-index: 5;
+  z-index: 10; /* Por encima del canvas */
 }
 
-/* Header para todos */
+/* Header */
 .header {
   position: sticky;
   top: 12px;
-  z-index: 40;
+  z-index: 100;
 }
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 18px;
   border-radius: 12px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent);
-  backdrop-filter: blur(6px);
+  background: rgba(15, 23, 36, 0.7); /* Fondo semi-transparente para legibilidad */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .brand {
   display: flex;
   gap: 12px;
   align-items: center;
 }
+
 .brand img {
   width: clamp(40px, 6vw, 70px);
   border-radius: 6px;
 }
+
 nav ul {
   display: flex;
   gap: 18px;
@@ -69,286 +87,98 @@ nav ul {
 }
 
 /* Buttons */
-.btn, .btn-cta, .btn-secondary, .btn-service-primary, .btn-service-secondary {
-  padding: 10px 16px;
+.btn-cta {
+  padding: 10px 20px;
   border-radius: 10px;
   font-weight: 600;
-  transition: 0.3s;
-}
-.btn-cta {
   background: linear-gradient(90deg, var(--accent2), var(--accent1));
   color: #04202a;
-}
-.btn-secondary {
-  border: 1px solid var(--muted);
-  color: var(--muted);
-}
-.btn-secondary:hover {
-  background: var(--accent2);
-  color: var(--bg);
-}
-.btn-service-primary {
-  background: linear-gradient(90deg, var(--accent2), var(--accent1));
-}
-.btn-service-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px var(--accent2), 0 0 20px var(--accent1);
-}
-.btn-service-secondary {
-  background: var(--card);
-  border: 1px solid var(--muted);
-}
-.btn-service-secondary:hover {
-  background: var(--accent2);
-  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* Hero Section */
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(96, 165, 250, 0.4);
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+  background: transparent;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* Hero Section - Ajuste de Grilla */
 .hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: clamp(20px, 5vw, 48px);
+  grid-template-columns: 1.2fr 0.8fr; /* Divide el espacio para que el texto no choque con los servicios */
+  gap: 40px;
   align-items: center;
-  padding: clamp(60px, 8vw, 100px) 0;
+  padding: clamp(60px, 10vw, 120px) 0;
   position: relative;
-  z-index: 5;
+  z-index: 20;
 }
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .cta-row { justify-content: center; }
 }
-.eyebrow {
-  display: inline-block;
-  padding: 6px 10px;
-  background: var(--glass);
-  border-radius: 999px;
-  color: var(--accent1);
-  font-weight: 600;
-  margin-bottom: 10px;
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
 }
+
 .cta-row {
   display: flex;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 15px;
+  margin-top: 30px;
 }
 
-/* Mockup */
+/* Mockup / Service List lateral */
 .mock {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+  background: rgba(11, 18, 32, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 20px;
-  padding: 22px;
-  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.mock .pulse {
-  position: absolute;
-  right: -120px;
-  top: -40px;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(96, 165, 250, 0.12), transparent 30%);
-  animation: float 7s ease-in-out infinite;
-}
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
+.svc {
+  padding: 15px;
+  background: var(--glass);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.svc:hover {
+  border-color: var(--accent2);
+  background: rgba(96, 165, 250, 0.1);
+}
 
 /* Floating Buttons */
-.chat-float, .service-buttons {
+.chat-float {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 60;
-}
-.chat-btn {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #fff;
-  cursor: pointer;
-  border: none;
-  position: relative;
-  transition: all 0.3s ease;
-}
-.chat-btn.wh {
-  background: #25d366;
-  box-shadow: 0 0 12px #25d366, 0 0 20px #25d366;
-}
-.chat-btn.tg {
-  background: #37aee2;
-  box-shadow: 0 0 12px #37aee2, 0 0 20px #37aee2;
-}
-.chat-label {
-  position: absolute;
-  right: 70px;
-  top: 50%;
-  transform: translateY(-50%) translateX(10px);
-  opacity: 0;
-  background: var(--glass);
-  color: var(--muted);
-}
-
-/* Animations */
-.fade-in, .slide-left, .slide-right {
-  opacity: 0;
-  transition: all 0.6s ease-out;
-}
-.fade-in { transform: translateY(20px); }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-.slide-left { transform: translateX(-30px); }
-.slide-left.visible { opacity: 1; transform: translateX(0); }
-.slide-right { transform: translateX(30px); }
-.slide-right.visible { opacity: 1; transform: translateX(0); }
-
-/* Gallery */
-
-.gallery-two-columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 40px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-}
-.gallery-card img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-.gallery-two-columns img {
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* mantiene proporción */
-}
-
-.service-gallery img {
-  width: 100%;       /* Que se adapten al ancho de la columna */
-  height: auto;      /* Mantener proporción */
-  object-fit: cover; /* Opcional: recorta si la imagen es muy grande */
-}
-
-.gallery-card img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
-
-}
-
-.service-gallery {
-  margin-top: 40px;
-  clear: both;
-  width: 100%;
-
-}
-
-.gallery-card {
-  background: var(--card);
-  border-radius: 14px;
-  padding: 18px;
-  max-width: 100%;
-  width: 100%;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-card h3 {
-  margin: 10px 0 6px;
-  font-size: 1.2rem;
-  color: var(--accent2);
-}
-.gallery-card p {
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-.gallery-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 18px var(--accent1), 0 0 28px var(--accent2);
-}
-
-/* Service Intro */
-.service-intro {
-  margin: 60px 0 40px;
-  padding: 20px;
-  background: rgba(11, 18, 32, 0.6);
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-.service-intro h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  margin-bottom: 12px;
-  color: var(--accent2);
-}
-.service-intro p {
-  font-size: 1.1rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-
-/* Mensajes de error */
-.error-msg {
-  color: #ff4d4d;
-  font-size: 0.9rem;
-  display: none;
-  margin: -12px 0 8px;
-}
-
-.servicios-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-  align-items: flex-start;
-  margin-top: 60px;
-  position: relative;
-  z-index: 1;
-}
-
-.service-details {
-  max-width: 100%;
-}
-
-/* Responsivo en pantallas pequeñas */
-.servicios-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-  align-items: flex-start;
-  margin-top: 60px;
-  position: relative;
-  z-index: 1;
-}
-
-/* Esto hace que el fondo tecnológico flote detrás de todo */
-#techCanvas {
-  position: fixed;   /* Se queda quieto aunque hagas scroll */
-  top: 0;
-  left: 0;
-  width: 100vw;      /* Ocupa todo el ancho de la ventana */
-  height: 100vh;     /* Ocupa todo el alto de la ventana */
-  z-index: -1;       /* Se va detrás de todos los textos y botones */
-  pointer-events: none; /* Permite que puedas hacer clic en lo que hay detrás */
-  display: block;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
 }
