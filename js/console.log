@@ -1,0 +1,10 @@
+function openService(service){
+  console.log("Servicio seleccionado:", service);
+  let url = '';
+  switch(service){
+    case 'redes': url='pages/servicios.html#redes'; break;
+    // resto de casos
+  }
+  console.log("URL:", url);
+  window.location.href = url;
+}

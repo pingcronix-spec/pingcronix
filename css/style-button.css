@@ -1,0 +1,77 @@
+/* Buttons */
+.btn, .btn-cta, .btn-secondary, .btn-service-primary, .btn-service-secondary {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn-cta {
+  background: linear-gradient(90deg, var(--accent2), var(--accent1));
+  color: #04202a;
+}
+.btn-secondary {
+  border: 1px solid var(--muted);
+  color: var(--muted);
+}
+.btn-secondary:hover {
+  background: var(--accent2);
+  color: var(--bg);
+}
+.btn-service-primary {
+  background: linear-gradient(90deg, var(--accent2), var(--accent1));
+}
+.btn-service-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px var(--accent2), 0 0 20px var(--accent1);
+}
+.btn-service-secondary {
+  background: var(--card);
+  border: 1px solid var(--muted);
+}
+.btn-service-secondary:hover {
+  background: var(--accent2);
+  color: var(--bg);
+}
+
+/* Floating Buttons whatsapp - telegram */
+.chat-float, .service-buttons {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 60;
+}
+.chat-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.chat-btn.wh {
+  background: #25d366;
+  box-shadow: 0 0 12px #25d366, 0 0 20px #25d366;
+}
+.chat-btn.tg {
+  background: #37aee2;
+  box-shadow: 0 0 12px #37aee2, 0 0 20px #37aee2;
+}
+.chat-label {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+  background: var(--glass);
+  color: var(--muted);
+}

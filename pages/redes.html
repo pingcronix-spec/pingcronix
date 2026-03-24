@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Redes & Telecom — PingCronix</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/glow.css">
+<link rel="stylesheet" href="../css/service-effects.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<style>
+/* Ajustes nuevos */
+.servicios-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* izquierda texto, derecha galería */
+  gap: 40px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+.servicios-container .service-details {
+  max-width: 400px; /* limita el ancho del bloque de texto */
+}
+
+.gallery-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Responsivo: apilar en pantallas pequeñas */
+@media (max-width: 768px) {
+  .servicios-container {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+<header class="container fade-in">
+  <div class="nav">
+    <div class="brand">
+      <img src="../img/logo.png" alt="Ping Cronix Logo">
+      <div>
+        <div class="brand-title">PingCronix</div>
+        <div class="brand-subtitle neon-text">Soluciones Tecnológicas Integrales</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="precios.html">Planes</a></li>
+        <li><a href="contacto.html" class="btn-cta">Contactar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero fade-in">
+    <h1 id="servicio-title">Redes & Telecomunicaciones</h1>
+    <p class="lead fade-in delay-1">
+      Soluciones integrales en redes y telecomunicaciones para empresas y particulares. Instalación y mantenimiento de redes LAN, WAN, Wi-Fi y VPN.
+    </p>
+
+    <!-- Imagen principal -->
+    <div class="service-image slide-left">
+      <img src="../img/servicios/redes_telecom.jpg" 
+           alt="Redes y Telecomunicaciones" 
+           style="width:100%; max-width:800px; border-radius:14px; margin:30px auto; display:block;">
+    </div>
+
+    <!-- Contenedor con 2 columnas -->
+    <div class="servicios-container">
+
+      <!-- Columna izquierda: texto -->
+      <div class="service-details slide-right">
+        <h2>Servicios Incluidos:</h2>
+        <ul>
+          <li>Diseño e implementación de redes LAN/WAN/Wi-Fi.</li>
+          <li>Configuración de routers, switches y puntos de acceso.</li>
+          <li>Monitoreo y optimización de la red.</li>
+          <li>Instalación de VPN segura y firewall corporativo.</li>
+          <li>Mantenimiento preventivo y correctivo.</li>
+          <li>Asesoría en ampliación y actualización de infraestructura.</li>
+        </ul>
+
+        <h2>Beneficios:</h2>
+        <ul>
+          <li>Red confiable y segura.</li>
+          <li>Soporte técnico especializado 24/7.</li>
+          <li>Optimización de rendimiento y reducción de fallas.</li>
+          <li>Escalabilidad para crecimiento futuro.</li>
+        </ul>
+      </div>
+
+      <!-- Columna derecha: galería -->
+      <div class="service-gallery fade-in">
+        <div class="gallery-two-columns">
+
+          <div class="gallery-card">
+            <img src="../img/servicios/Rlan.png" alt="Red LAN">
+            <h3>Red LAN</h3>
+            <p>Implementación de redes locales seguras y rápidas para tu empresa.</p>
+          </div>
+
+          <div class="gallery-card">
+            <img src="../img/servicios/cableado.png" alt="Cableado Estructurado">
+            <h3>Cableado Estructurado</h3>
+            <p>Diseño e instalación de cableado estructurado para redes eficientes, escalables y organizadas.</p>
+          </div>
+
+          <div class="gallery-card">
+            <img src="../img/servicios/Wifi.jpg" alt="Wi-Fi Empresarial">
+            <h3>Wi-Fi Empresarial</h3>
+            <p>Conexiones inalámbricas estables y optimizadas para múltiples usuarios.</p>
+          </div>
+
+          <div class="gallery-card">
+            <img src="../img/servicios/monitoreo.jpg" alt="Monitorización de Red">
+            <h3>Monitorización de Red</h3>
+            <p>Supervisión en tiempo real para detectar y resolver incidencias.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Botones flotantes -->
+<div class="service-buttons fade-in delay-2">
+  <a class="btn-service-primary" href="contacto.html">Solicitar presupuesto</a>
+  <a class="btn-service-secondary" href="../index.html">Regresar al inicio</a>
+</div>
+
+<footer class="container fade-in delay-3">
+  <div class="footer-content">© 2025 PingCronix. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
+  observer.observe(el);
+});
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

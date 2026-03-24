@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CCTV & Cámaras — PingCronix</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/glow.css">
+<link rel="stylesheet" href="../css/service-effects.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<header class="container fade-in">
+  <div class="nav">
+    <div class="brand">
+      <img src="../img/logo.png" alt="Ping Cronix Logo">
+      <div>
+        <div class="brand-title">PingCronix</div>
+        <div class="brand-subtitle neon-text">Soluciones Tecnológicas Integrales</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="precios.html">Planes</a></li>
+        <li><a href="contacto.html" class="btn-cta">Contactar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero fade-in">
+    <h1 id="servicio-title">CCTV & Cámaras</h1>
+    <p class="lead fade-in delay-1">
+      Implementamos sistemas de CCTV y cámaras de seguridad de alta resolución para empresas y hogares, garantizando monitoreo y protección constante.
+    </p>
+
+    <!-- Imagen principal -->
+    <div class="service-image slide-left">
+      <img src="../img/servicios/camara1.jpg" 
+           alt="CCTV y cámaras" 
+           style="width:100%; max-width:800px; border-radius:14px; margin:30px auto; display:block;">
+    </div>
+
+    <!-- Detalles en escalera -->
+    <div class="service-details slide-right" style="margin-top:40px;">
+      <h2>Servicios incluidos:</h2>
+      <ul>
+        <li>Instalación y configuración de cámaras IP y analógicas.</li>
+        <li>Monitoreo remoto y grabación continua.</li>
+        <li>Integración con sistemas de alarma y control de acceso.</li>
+        <li>Mantenimiento preventivo y soporte técnico.</li>
+        <li>Asesoría para cobertura y posicionamiento óptimo.</li>
+      </ul>
+
+      <h2>Beneficios:</h2>
+      <ul>
+        <li>Seguridad y vigilancia 24/7.</li>
+        <li>Acceso remoto desde dispositivos móviles y PC.</li>
+        <li>Protección de instalaciones y activos valiosos.</li>
+        <li>Soporte especializado y mantenimiento confiable.</li>
+      </ul>
+    </div>
+
+    <!-- Galería en tarjetas -->
+    <div class="service-gallery fade-in">
+      <div class="gallery-card">
+        <img src="../img/servicios/camara_ip.jpg" alt="Cámara IP">
+        <h3>Cámara IP</h3>
+        <p>Alta definición y conexión en red para supervisión remota.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/Monitoreo_CCTV.jpg" alt="Monitoreo CCTV">
+        <h3>Monitoreo CCTV</h3>
+        <p>Supervisión en tiempo real desde salas de control o dispositivos móviles.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/almacenamie.png" alt="Grabación y almacenamiento">
+        <h3>Grabación y Almacenamiento</h3>
+        <p>Resguardo confiable de imágenes para análisis y seguridad.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Botones flotantes -->
+<div class="service-buttons fade-in delay-2">
+  <a class="btn-service-primary" href="contacto.html">Solicitar presupuesto</a>
+  <a class="btn-service-secondary" href="../index.html">Regresar al inicio</a>
+</div>
+
+<footer class="container fade-in delay-3">
+  <div class="footer-content">© 2025 PingCronix. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
+  observer.observe(el);
+});
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

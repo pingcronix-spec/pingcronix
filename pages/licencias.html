@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Licencias — PingCronix</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/glow.css">
+<link rel="stylesheet" href="../css/service-effects.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header class="container fade-in">
+  <div class="nav">
+    <div class="brand">
+      <img src="../img/logo.png" alt="Ping Cronix Logo">
+      <div>
+        <div class="brand-title">PingCronix</div>
+        <div class="brand-subtitle neon-text">Soluciones Tecnológicas Integrales</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <!--<li><a href="proyectos.html">Proyectos</a></li>-->
+        <!--<li><a href="precios.html">Planes</a></li>-->
+        <li><a href="contacto.html" class="btn-cta">Contactar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero fade-in">
+    <h1 id="servicio-title">Licencias</h1>
+    <p class="lead fade-in delay-1">
+      Comercializamos licencias oficiales de software, garantizando legalidad, seguridad y soporte técnico especializado.
+    </p>
+
+    <!-- Imagen principal -->
+    <div class="service-image slide-left">
+      <img src="../img/servicios/lic1.jpg" 
+           alt="Licencias de Software" 
+           style="width:100%; max-width:800px; border-radius:14px; margin:30px auto; display:block;">
+    </div>
+
+    <!-- Servicios y beneficios -->
+    <div class="service-details slide-right" style="margin-top:40px;">
+      <h2>Servicios incluidos:</h2>
+      <ul>
+        <li>Venta de licencias originales de sistemas operativos y software empresarial.</li>
+        <li>Licencias de seguridad informática (antivirus y suites corporativas).</li>
+        <li>Asesoría para elegir la licencia adecuada según tus necesidades.</li>
+        <li>Activación y soporte técnico durante la instalación.</li>
+      </ul>
+
+      <h2>Beneficios:</h2>
+      <ul>
+        <li>Software 100% legal y seguro.</li>
+        <li>Evita problemas legales y de compatibilidad.</li>
+        <li>Soporte técnico especializado y confiable.</li>
+      </ul>
+    </div>
+
+    <!-- Galería en formato tarjetas -->
+    <div class="service-gallery fade-in">
+      <div class="gallery-card">
+        <img src="../img/servicios/lic2.png" alt="Licencias Windows">
+        <h3>Licencias Windows</h3>
+        <p>Sistemas operativos originales con todas las actualizaciones y soporte.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/lic3.png" alt="Software Office">
+        <h3>Microsoft Office</h3>
+        <p>Paquetes de productividad completos para empresas y uso personal.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/antivirus.png" alt="Seguridad informática">
+        <h3>Seguridad Informática</h3>
+        <p>Soluciones antivirus y firewall corporativos para proteger tus equipos.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Botones flotantes -->
+<div class="service-buttons fade-in delay-2">
+  <a class="btn-service-primary" href="contacto.html">Solicitar presupuesto</a>
+  <a class="btn-service-secondary" href="../index.html">Regresar al inicio</a>
+</div>
+
+<footer class="container fade-in delay-3">
+  <div class="footer-content">© 2025 PingCronix. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
+  observer.observe(el);
+});
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

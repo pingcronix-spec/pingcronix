@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contacto — PingCronix</title>
+<meta name="description" content="Formulario de contacto para solicitar información o presupuesto de servicios tecnológicos en PingCronix.">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/service-effects.css">
+<link rel="stylesheet" href="../css/glow.css">
+<link rel="stylesheet" href="../css/style-Contact.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="container reveal">
+  <div class="nav">
+    <div class="brand">
+      <img src="../img/logo.png" alt="Ping Cronix Logo">
+      <div>
+        <div class="brand-title">PingCronix</div>
+        <div class="brand-subtitle neon-text">Soluciones Tecnológicas Integrales</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="precios.html">Planes</a></li>
+        <li><a href="contacto.html" class="btn-cta active">Contactar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container contact-section">
+  <h1 class="fade-in">Contáctanos</h1>
+  <p class="fade-in delay">Completa el formulario a continuación y nuestro equipo se pondrá en contacto contigo para asesorarte o enviarte un presupuesto.</p>
+
+  <form class="contact-form fade-in delay" id="contactForm" novalidate>
+    <input type="text" name="name" placeholder="Nombre completo" required>
+    <div class="error-msg" id="nameError">Por favor ingresa tu nombre.</div>
+
+    <input type="email" name="email" placeholder="Correo electrónico" required>
+    <div class="error-msg" id="emailError">Por favor ingresa un correo válido.</div>
+
+    <input type="tel" name="phone" placeholder="Teléfono" pattern="[0-9]{9,15}" title="Ingrese solo números, mínimo 9 dígitos" required>
+    <div class="error-msg" id="phoneError">Por favor ingresa un número válido (solo números, mínimo 9 dígitos).</div>
+
+    <select name="service" required>
+      <option value="">Selecciona un servicio</option>
+      <option value="redes">Redes & Telecom</option>
+      <option value="cctv">CCTV & Cámaras</option>
+      <option value="pc">Mantenimiento PC</option>
+      <option value="impresoras">Impresoras</option>
+      <option value="licencias">Venta de Licencias</option>
+      <option value="auditoria">Auditoría</option>
+      <option value="ciberseguridad">Ciberseguridad</option>
+    </select>
+    <div class="error-msg" id="serviceError">Selecciona un servicio.</div>
+
+    <textarea name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+    <div class="error-msg" id="messageError">Por favor escribe tu mensaje.</div>
+
+    <button type="submit">Enviar mensaje</button>
+  </form>
+</main>
+
+<!-- BOTONES FLOTANTES -->
+<div class="service-buttons">
+  <a href="../index.html" class="btn-service-secondary">Regresar al inicio</a>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+// Validación avanzada en tiempo real
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  let valid = true;
+
+  // Nombre
+  const name = form.name.value.trim();
+  if(name === ''){
+    document.getElementById('nameError').style.display='block';
+    valid=false;
+  }else{
+    document.getElementById('nameError').style.display='none';
+  }
+
+  // Email
+  const email = form.email.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)){
+    document.getElementById('emailError').style.display='block';
+    valid=false;
+  }else{
+    document.getElementById('emailError').style.display='none';
+  }
+
+  // Teléfono
+  const phone = form.phone.value.trim();
+  const phoneRegex = /^[0-9]{9,15}$/;
+  if(!phoneRegex.test(phone)){
+    document.getElementById('phoneError').style.display='block';
+    valid=false;
+  }else{
+    document.getElementById('phoneError').style.display='none';
+  }
+
+  // Servicio
+  const service = form.service.value;
+  if(service === ''){
+    document.getElementById('serviceError').style.display='block';
+    valid=false;
+  }else{
+    document.getElementById('serviceError').style.display='none';
+  }
+
+  // Mensaje
+  const message = form.message.value.trim();
+  if(message===''){
+    document.getElementById('messageError').style.display='block';
+    valid=false;
+  }else{
+    document.getElementById('messageError').style.display='none';
+  }
+
+  if(valid){
+    alert("¡Gracias por tu mensaje! Nos pondremos en contacto pronto.");
+    form.reset();
+  }
+});
+</script>
+</body>
+</html>

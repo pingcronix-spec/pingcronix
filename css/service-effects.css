@@ -1,0 +1,143 @@
+/* Fade-in y slide */
+.fade-in { opacity:0; transform:translateY(20px); transition:all 0.6s ease-out; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+.slide-left { opacity:0; transform:translateX(-30px); transition:all 0.6s ease-out; }
+.slide-left.visible { opacity:1; transform:translateX(0); }
+.slide-right { opacity:0; transform:translateX(30px); transition:all 0.6s ease-out; }
+.slide-right.visible { opacity:1; transform:translateX(0); }
+
+/* Parallax de imágenes */
+.service-image img {
+  transition: transform 0.6s ease-out;
+  will-change: transform;
+}
+
+/* Glow hover en galería de imágenes */
+.service-gallery img {
+  border-radius:14px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.service-gallery img:hover {
+  transform: scale(1.08) rotateZ(1deg);
+  box-shadow: 0 0 20px var(--accent1), 0 0 40px var(--accent2);
+}
+
+/* Animación de lista de detalles */
+.service-details ul li {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+.service-details ul li.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Botones flotantes de servicio */
+.service-buttons {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 60;
+}
+.service-buttons a {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.btn-service-primary {
+  background: linear-gradient(90deg, var(--accent2), var(--accent1));
+}
+.btn-service-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px var(--accent2), 0 0 20px var(--accent1);
+}
+.btn-service-secondary {
+  background: var(--card);
+  border: 1px solid var(--muted);
+}
+.btn-service-secondary:hover {
+  background: var(--accent2);
+  color: var(--bg);
+}
+
+/* Galería de servicios en tarjetas */
+.service-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.gallery-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.gallery-card h3 {
+  margin: 10px 0 6px;
+  font-size: 1.3rem;
+  color: var(--accent2);
+}
+
+.gallery-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Estilo escalera para listas de servicios y beneficios */
+.service-details ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.service-details ul li {
+  background: var(--card);
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 14px 0;
+  position: relative;
+  color: #e6eef6;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Alternar lados en forma escalera */
+.service-details ul li:nth-child(odd) {
+  margin-left: 10%;
+}
+.service-details ul li:nth-child(even) {
+  margin-right: 10%;
+}
+
+/* Efecto hover */
+.service-details ul li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}

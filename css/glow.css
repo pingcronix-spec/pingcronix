@@ -1,0 +1,20 @@
+/* Efecto glow/neón para h1 o títulos destacados */
+.neon-text {
+  color: var(--accent1);
+  text-shadow:
+    0 0 5px var(--accent1),
+    0 0 10px var(--accent1),
+    0 0 20px var(--accent2),
+    0 0 30px var(--accent2),
+    0 0 40px var(--accent2);
+  transition: all 0.3s ease;
+}
+
+.neon-text:hover {
+  text-shadow:
+    0 0 10px var(--accent1),
+    0 0 20px var(--accent1),
+    0 0 30px var(--accent2),
+    0 0 40px var(--accent2),
+    0 0 50px var(--accent2);
+}

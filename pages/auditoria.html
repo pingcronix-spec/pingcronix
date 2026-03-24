@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Auditoría — PingCronix</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/glow.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/service-effects.css">
+<script src="../js/main.js"></script>
+</head>
+
+<body>
+<header class="container fade-in">
+  <div class="nav">
+    <div class="brand">
+      <img src="../img/logo.png" alt="Ping Cronix Logo">
+      <div><div class="brand-title neon-text">PingCronix</div><div class="brand-subtitle">Soluciones Tecnológicas Integrales</div></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="precios.html">Planes</a></li>
+        <li><a href="contacto.html" class="btn-cta">Contactar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero fade-in">
+    <h1 id="servicio-title">Auditoría</h1>
+    <p class="lead fade-in delay-1">
+      Realizamos auditorías completas de sistemas y redes para evaluar seguridad, rendimiento y cumplimiento de normativas.
+    </p>
+    <div class="service-image slide-left">
+      <img src="../img/servicios/auditoira1.jpg" alt="Auditoría IT" style="width:100%; max-width:700px; border-radius:14px; margin-top:20px;">
+    </div>
+    <div class="service-details slide-right" style="margin-top:30px;">
+      <h2>Servicios incluidos:</h2>
+      <ul>
+        <li>Auditoría de seguridad informática.</li>
+        <li>Revisión de redes y sistemas internos.</li>
+        <li>Detección de vulnerabilidades y riesgos.</li>
+        <li>Informe completo con recomendaciones.</li>
+        <li>Soporte para la implementación de mejoras.</li>
+      </ul>
+      <h2>Beneficios:</h2>
+      <ul>
+        <li>Mayor seguridad de la información.</li>
+        <li>Prevención de posibles ataques.</li>
+        <li>Optimización de procesos y recursos IT.</li>
+      </ul>
+    </div>
+    <div class="gallery-two-columns fade-in">
+      <div class="gallery-card">
+        <img src="../img/servicios/seguridad.jpg" alt="Seguridad informática">
+        <h3>Seguridad Informática</h3>
+        <p>Protección integral de sistemas y redes para tu empresa.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/auditoria2.jpg" alt="Revisión de redes">
+        <h3>Revisión de Redes</h3>
+        <p>Evaluación completa de la infraestructura y rendimiento de la red.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/auditoria3.jpg" alt="Informe auditoría">
+        <h3>Informe Auditoría</h3>
+        <p>Documentación detallada con recomendaciones y mejoras sugeridas.</p>
+      </div>
+    </div>
+
+  </section>
+</main>
+<div class="service-buttons fade-in delay-2">
+  <a class="btn-service-primary" href="contacto.html">Solicitar presupuesto</a>
+  <a class="btn-service-secondary" href="../index.html">Regresar al inicio</a>
+</div>
+<footer class="container fade-in delay-3">
+  <div class="footer-content">© 2025 PingCronix. Todos los derechos reservados.</div>
+</footer>
+<script>
+const observer = new IntersectionObserver(entries => {entries.forEach(entry => {if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.2});
+document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {observer.observe(el);});
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

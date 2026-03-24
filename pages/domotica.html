@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Domótica — PingCronix</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/style-Letra.css">
+<link rel="stylesheet" href="../css/glow.css">
+<link rel="stylesheet" href="../css/service-effects.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header class="container fade-in">
+  <div class="nav">
+    <div class="brand">
+      <img src="../img/logo.png" alt="Ping Cronix Logo">
+      <div>
+        <div class="brand-title">PingCronix</div>
+        <div class="brand-subtitle neon-text">Soluciones Tecnológicas Integrales</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="precios.html">Planes</a></li>
+        <li><a href="contacto.html" class="btn-cta">Contactar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero fade-in">
+    <h1 id="servicio-title">Domótica</h1>
+    <p class="lead fade-in delay-1">
+      Implementamos soluciones inteligentes para hogares y empresas, 
+      optimizando la seguridad, eficiencia energética y comodidad mediante 
+      sistemas de domótica y automatización avanzada.
+    </p>
+
+    <!-- Imagen principal -->
+    <div class="service-image slide-left">
+      <img src="../img/servicios/dom1.png" 
+           alt="Domótica y Automatización" 
+           style="width:100%; max-width:800px; border-radius:14px; margin:30px auto; display:block;">
+    </div>
+
+    <!-- Servicios y beneficios -->
+    <div class="service-details slide-right" style="margin-top:40px;">
+      <h2>Servicios incluidos:</h2>
+      <ul>
+        <li>Instalación de sistemas de iluminación inteligente.</li>
+        <li>Automatización de climatización (aire acondicionado, calefacción).</li>
+        <li>Control de accesos y cerraduras inteligentes.</li>
+        <li>Integración con asistentes de voz (Alexa, Google Home).</li>
+        <li>Monitoreo y control remoto desde aplicaciones móviles.</li>
+        <li>Optimización del consumo energético con sensores inteligentes.</li>
+      </ul>
+
+      <h2>Beneficios:</h2>
+      <ul>
+        <li>Mayor seguridad y control en tiempo real.</li>
+        <li>Ahorro de energía y reducción de costos.</li>
+        <li>Comodidad y personalización de ambientes.</li>
+        <li>Escalabilidad para futuras integraciones.</li>
+      </ul>
+    </div>
+
+    <!-- Galería en tarjetas -->
+    <div class="service-gallery fade-in">
+      <div class="gallery-card">
+        <img src="../img/servicios/dom2.png" alt="Iluminación Inteligente">
+        <h3>Iluminación Inteligente</h3>
+        <p>Control de luces desde tu móvil o por voz, con programación automática.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/dom3.jpg" alt="Seguridad Automatizada">
+        <h3>Seguridad Automatizada</h3>
+        <p>Cámaras, sensores y cerraduras inteligentes para tu tranquilidad.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="../img/servicios/dom4.jpg" alt="Climatización Inteligente">
+        <h3>Climatización Inteligente</h3>
+        <p>Regula la temperatura de tus espacios de forma eficiente y automática.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Botones flotantes -->
+<div class="service-buttons fade-in delay-2">
+  <a class="btn-service-primary" href="contacto.html">Solicitar presupuesto</a>
+  <a class="btn-service-secondary" href="../index.html">Regresar al inicio</a>
+</div>
+
+<footer class="container fade-in delay-3">
+  <div class="footer-content">© 2025 PingCronix. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
+  observer.observe(el);
+});
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>
