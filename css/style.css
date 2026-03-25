@@ -340,3 +340,104 @@ nav ul {
   position: relative;
   z-index: 1;
 }
+
+/*---------------------*/
+
+/* =========================
+   📱 RESPONSIVE MOBILE
+========================= */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr; /* una sola columna */
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  /* TITULOS */
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  /* BOTONES */
+  .cta-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-cta, .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* MOCK (lado derecho) */
+  .mock {
+    margin-top: 20px;
+    padding: 16px;
+  }
+
+  /* SERVICIOS */
+  .service-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* BOTONES FLOTANTES */
+  .chat-float {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .chat-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* GALERÍA */
+  .gallery-two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  /* CONTENEDOR SERVICIOS */
+  .servicios-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+
+  .brand img {
+    width: 40px;
+  }
+}
